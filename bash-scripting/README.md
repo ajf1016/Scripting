@@ -69,7 +69,7 @@ my var
 my-var
 ```
 
-## Input and Output
+## Input
 
 We can read the user input using the read command.
 

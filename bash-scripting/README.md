@@ -5,12 +5,12 @@
 -   [Introduction](#Introduction)
 -   [Variables](#Variables)
 -   [Input](#Input)
--   [Basic Bash commands](#basic-bash-commands)
--   [Conditional statements (if/else)](#conditional)
--   [Looping and Branching](#looping)
--   [Case statements](#case)
--   [Cron](#cron)
--   [Debuging and Troubleshooting](#debug)
+-   [Basic Bash commands](#Basic-Bash-Commands)
+-   [Conditional statements (if/else)](#Conditional)
+-   [Looping and Branching](#Looping)
+-   [Case statements](#Case-statements)
+-   [Cron](#Cron)
+-   [Debuging and Troubleshooting](#Debug)
 
 ## Introduction
 
@@ -83,7 +83,7 @@ read entered_name
 echo -e "\nWelcome to bash tutorial" $entered_name
 ```
 
-## Basic Bash commands
+## Basic-Bash-Commands
 
 ```bash
     cd: #Change the directory to a different location.
@@ -101,4 +101,158 @@ echo -e "\nWelcome to bash tutorial" $entered_name
     df: #Display the amount of disk space available.
     history: #Show a list of previously executed commands.
     ps: #Display information about running processes.
+```
+
+## Conditional
+
+There are several ways to evaluate conditions, including if, if-else, if-elif-else, and nested conditionals.
+
+```bash
+if [[ condition ]];
+then
+	statement
+elif [[ condition ]]; then
+	statement
+else
+	do this by default
+fi
+```
+
+We can use logical operators such as AND -a and OR -o to make comparisons that have more significance.
+
+```bash
+if [ $a -gt 60 -a $b -lt 100 ]
+```
+
+```bash
+#!/bin/bash
+
+echo "Please enter a number: "
+read num
+
+if [ $num -gt 0 ]; then
+  echo "$num is positive"
+elif [ $num -lt 0 ]; then
+  echo "$num is negative"
+else
+  echo "$num is zero"
+fi
+```
+
+## Looping
+
+while loop
+
+```bash
+#!/bin/bash
+i=1
+while [[ $i -le 10 ]] ; do
+   echo "$i"
+  (( i += 1 ))
+done
+```
+
+for loop
+
+```bash
+#!/bin/bash
+
+for i in {1..5}
+do
+    echo $i
+done
+```
+
+## Case-statements
+
+```bash
+case expression in
+    pattern1)
+        # code to execute if expression matches pattern1
+        ;;
+    pattern2)
+        # code to execute if expression matches pattern2
+        ;;
+    pattern3)
+        # code to execute if expression matches pattern3
+        ;;
+    *)
+        # code to execute if none of the above patterns match expression
+        ;;
+esac
+```
+
+```bash
+fruit="apple"
+
+case $fruit in
+    "apple")
+        echo "This is a red fruit."
+        ;;
+    "banana")
+        echo "This is a yellow fruit."
+        ;;
+    "orange")
+        echo "This is an orange fruit."
+        ;;
+    *)
+        echo "Unknown fruit."
+        ;;
+esac
+```
+
+## Crone
+
+Schedule Scripts using cron
+Below is the syntax to schedule crons:
+
+```bash
+
+# Cron job example
+* * * * * bash /path/to/script.sh
+```
+
+Here, the \*s represent minute(s) hour(s) day(s) month(s) weekday(s), respectively.
+
+```bash
+#Schedule       Description                                             #cron job example
+0 0 * * * 	    Run a script at midnight every day 	                    0 0 * * * /path/to/script.sh
+*/5 * * * * 	Run a script every 5 minutes 	                        */5 * * * * /path/to/script.sh
+0 6 * * 1-5 	Run a script at 6 am from Monday to Friday 	            0 6 * * 1-5 /path/to/script.sh
+0 0 1-7 * * 	Run a script on the first 7 days of every month 	    0 0 1-7 * * /path/to/script.sh
+0 12 1 * * 	    Run a script on the first day of every month at noon 	0 12 1 * * /path/to/script.sh
+```
+
+## Debug
+
+Set the set -x option
+
+```bash
+#!/bin/bash
+
+set -x
+
+# Your script goes here
+```
+
+Check the exit code
+
+```bash
+#!/bin/bash
+
+# Your script goes here
+
+if [ $? -ne 0 ]; then
+    echo "Error occurred."
+fi
+```
+
+Use the set -e option
+
+```bash
+#!/bin/bash
+
+set -e
+
+# Your script goes here
 ```

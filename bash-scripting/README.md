@@ -2,7 +2,7 @@
 
 ## Table of Contents
 
--   [Introduction](#intro)
+-   [Introduction](#Introduction)
 -   [Variables](#variables)
 -   [Input](#input)
 -   [Output](#output)

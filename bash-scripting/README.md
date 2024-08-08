@@ -294,3 +294,57 @@ set -e
 
 # Your script goes here
 ```
+
+## Modular Scripting
+
+Modular scripting refers to the practice of breaking down scripts into smaller, reusable, and manageable components or modules.
+
+-Main Script (main_script.sh)
+
+```bash
+#!/bin/bash
+
+# Source the utility functions
+source ./utilities.sh
+source ./network.sh
+
+# Main script logic
+echo "Starting the main script..."
+
+# Use functions from the sourced files
+create_user "john"
+check_network
+
+echo "Main script completed."
+
+```
+
+-Utility Functions (utilities.sh)
+
+```bash
+#!/bin/bash
+
+# Function to create a user
+create_user() {
+  local username=$1
+  sudo useradd -m "$username"
+  echo "User $username created."
+}
+```
+
+-Network Functions (network.sh)
+
+```bash
+    #!/bin/bash
+
+# Function to check network connectivity
+check_network() {
+  ping -c 1 google.com &> /dev/null
+  if [ $? -eq 0 ]; then
+    echo "Network is up."
+  else
+    echo "Network is down."
+  fi
+}
+
+```

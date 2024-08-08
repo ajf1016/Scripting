@@ -204,6 +204,41 @@ case $fruit in
 esac
 ```
 
+## Arrays
+
+Creating Arrays in Shell Scripts
+
+```bash
+indexed_array[0]="Fruit"
+```
+
+Accessing Array Elements Individually
+
+```bash
+   echo ${indexed_array[0]}
+
+   index_array=(1 2 3 4 5 6)
+   echo ${index_array[0]}
+```
+
+## Functions
+
+First method
+
+```bash
+my_function(){
+    echo "Hello world"
+}
+```
+
+Second method useing reserved keyword(Function)
+
+```bash
+function my_function(){
+    echo "Hello world"
+}
+```
+
 ## Crone
 
 Schedule Scripts using cron
@@ -226,24 +261,6 @@ Here, the \*s represent minute(s) hour(s) day(s) month(s) weekday(s), respective
 0 12 1 * * 	    Run a script on the first day of every month at noon 	0 12 1 * * /path/to/script.sh
 ```
 
-## Functions
-
-First method
-
-```bash
-my_function(){
-    echo "Hello world"
-}
-```
-
-Second method useing reserved keyword(Function)
-
-````bash
-function my_function(){
-    echo "Hello world"
-}
-```
-
 ## Debug
 
 Set the set -x option
@@ -254,7 +271,7 @@ Set the set -x option
 set -x
 
 # Your script goes here
-````
+```
 
 Check the exit code
 

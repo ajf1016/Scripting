@@ -9,8 +9,11 @@
 -   [Conditional statements (if/else)](#Conditional)
 -   [Looping and Branching](#Looping)
 -   [Case statements](#Case-statements)
+-   [Functions](#Functions)
+-   [Array](#Array)
 -   [Cron](#Cron)
 -   [Debuging and Troubleshooting](#Debug)
+-   [Modular Scripting](#Modular-Scripting)
 
 ## Introduction
 
@@ -223,6 +226,24 @@ Here, the \*s represent minute(s) hour(s) day(s) month(s) weekday(s), respective
 0 12 1 * * 	    Run a script on the first day of every month at noon 	0 12 1 * * /path/to/script.sh
 ```
 
+## Functions
+
+First method
+
+```bash
+my_function(){
+    echo "Hello world"
+}
+```
+
+Second method useing reserved keyword(Function)
+
+````bash
+function my_function(){
+    echo "Hello world"
+}
+```
+
 ## Debug
 
 Set the set -x option
@@ -233,7 +254,7 @@ Set the set -x option
 set -x
 
 # Your script goes here
-```
+````
 
 Check the exit code
 
